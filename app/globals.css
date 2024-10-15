@@ -23,3 +23,13 @@ body {
     text-wrap: balance;
   }
 }
+
+.stroke-animation {
+  stroke-dasharray: 14;
+  stroke-dashoffset: 14;
+  transition: stroke-dashoffset 0.15s ease-in-out;
+}
+
+.group:hover .stroke-animation {
+  stroke-dashoffset: 0;
+}
