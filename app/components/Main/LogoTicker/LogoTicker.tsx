@@ -1,3 +1,6 @@
+'use client'
+import { motion } from "framer-motion";
+
 import AnalyticsLogo from "./Logos/AnalyticsLogo";
 import CustomizeLogo from "./Logos/CustomizeLogo";
 import FastLogo from "./Logos/FastLogo";
@@ -11,7 +14,18 @@ export default function LogoTicker() {
         <section className="py-8 md:py-12">
             <div className="container">
                 <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
-                    <div className="flex flex-none gap-16">
+                    <motion.div 
+                        className="flex flex-none gap-16 pr-16"
+                        animate={{
+                            translateX: "-50%",
+                        }}
+                        transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear",
+                            repeatType: "loop"
+                        }}
+                    >
                         <AnalyticsLogo />
                         <CustomizeLogo />
                         <SchedulingLogo />
@@ -19,7 +33,16 @@ export default function LogoTicker() {
                         <FastLogo />
                         <SecureLogo />
                         <OfflineLogo />
-                    </div>
+
+                        {/* Second set of logos for animation */}
+                        <AnalyticsLogo />
+                        <CustomizeLogo />
+                        <SchedulingLogo />
+                        <HistoryLogo />
+                        <FastLogo />
+                        <SecureLogo />
+                        <OfflineLogo />
+                    </motion.div>
                 </div>
             </div>
         </section>
