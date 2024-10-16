@@ -11,7 +11,7 @@ export default function Contact() {
     const isInView = useInView(containerRef);
 
     return (
-        <section ref={containerRef} className="flex flex-col justify-center py-20 md:flex-row">
+        <section id="contact" ref={containerRef} className="flex flex-col justify-center py-20 md:flex-row">
             <motion.div 
                 ref={ref}
                 initial={{ opacity: 0, y: 20 }}
