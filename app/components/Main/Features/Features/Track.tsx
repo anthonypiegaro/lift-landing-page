@@ -11,7 +11,7 @@ export default function Track() {
     const isInView = useInView(containerRef);
 
     return (
-        <div ref={containerRef} className="flex flex-col py-20 md:flex-row">
+        <div ref={containerRef} className="flex flex-col-reverse py-10 md:py-20 md:flex-row">
             <div className="flex justify-center flex-1 px-4 md:px-6 lg:px-14">
                 <Card>
                     <FeatureItem feature="Track Every Set" />

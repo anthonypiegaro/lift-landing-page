@@ -11,7 +11,7 @@ export default function Analyze() {
     const isInView = useInView(containerRef);
 
     return (
-        <div ref={containerRef} className="flex flex-col py-20 md:flex-row">
+        <div ref={containerRef} className="flex flex-col md:py-20 md:flex-row">
             <motion.div
                 ref={ref}
                 initial={{ opacity: 0, y: 40 }}
