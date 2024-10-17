@@ -16,7 +16,7 @@ export default function Waitlist() {
                 transition={{ duration: 1 }}
                 className="flex flex-col self-center justify-center px-6 rounded-xl py-14 bg-zinc-800 lg:py-16 lg:px-10"
             >
-                <h2 className="mb-4 text-2xl font-semibold text-center">
+                <h2 className="mb-4 text-3xl font-semibold text-center">
                     Join the waitlist
                 </h2>
                 <p className="self-center max-w-xl px-4 mb-4 text-center text-zinc-400">

@@ -1,5 +1,6 @@
 import Hero from "./Hero/Hero";
 import LogoTicker from "./LogoTicker/LogoTicker";
+import Features from "./Features/Features";
 import Waitlist from "./Waitlist/Waitlist";
 import Contact from "./Contact/Contact";
 
@@ -8,7 +9,7 @@ export default function Main() {
         <main className="w-full">
             <Hero />
             <LogoTicker />
-            {/* Features */}
+            <Features />
             <Waitlist />
             <Contact />
         </main>

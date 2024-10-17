@@ -19,7 +19,7 @@ export default function Contact() {
                 transition={{ duration: 1 }}
                 className="flex flex-col flex-1 mb-8 md:justify-center md:mb-0"
             >
-                <h2 className="mb-4 text-2xl font-semibold text-center">
+                <h2 className="mb-4 text-3xl font-semibold text-center">
                     Get in touch
                 </h2>
                 <p className="self-center max-w-xl px-4 text-center text-zinc-400">
