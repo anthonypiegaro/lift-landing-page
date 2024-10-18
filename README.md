@@ -1,3 +1,3 @@
 # lift labs Landing Page
 
-This is the landing page for the app.
+Landing page for [lift labs](https://github.com/antpie530/lift).
