@@ -21,6 +21,12 @@ const monaSans = localFont({
 export const metadata: Metadata = {
   title: "lift labs",
   description: "lift labs landing page",
+  icons: [
+    {
+      rel: "icon",
+      url: "/icon.webp"
+    }
+  ]
 };
 
 export default function RootLayout({
