@@ -29,7 +29,7 @@ export default function Build() {
                     <p className="max-w-xl px-4 text-zinc-400">
                         Take full control of your training with the Build feature. Create custom 
                         exercises, design your own workout templates, and develop comprehensive 
-                        training programs tailored to your unique goals. Whether you're a beginner 
+                        training programs tailored to your unique goals. Whether you&#39;re a beginner 
                         or an advanced athlete, you have the freedom to build it all—exactly the 
                         way you want, with no limits. Your training, your way.
                     </p>
