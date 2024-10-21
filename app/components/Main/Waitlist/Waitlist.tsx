@@ -24,10 +24,10 @@ export default function Waitlist() {
     })
 
     const onSubmit = async (data: WaitlistForm) => {
+        reset();
         setEmailSubmitted(data.email);
         await checkConfig();
         await addToWaitlist(data.email);
-        reset();
         console.log("Server function called with data: ", data);
     }
 
