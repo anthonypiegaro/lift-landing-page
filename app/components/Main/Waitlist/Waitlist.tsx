@@ -1,11 +1,35 @@
 "use client"
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { useForm } from "react-hook-form";
+
+import { addToWaitlist, checkConfig } from "@/app/api/mailchimp";
+
+type WaitlistForm = {
+    email: string;
+}
 
 export default function Waitlist() {
+    const [emailSubmitted, setEmailSubmitted] = useState("");
     const ref = useRef(null);
     const containerRef = useRef(null)
     const isInView = useInView(containerRef);
+    const { 
+        register, 
+        reset,
+        handleSubmit, 
+        formState: { errors, isValid } 
+    } = useForm<WaitlistForm>({
+        mode: "onChange"
+    })
+
+    const onSubmit = async (data: WaitlistForm) => {
+        setEmailSubmitted(data.email);
+        await checkConfig();
+        await addToWaitlist(data.email);
+        reset();
+        console.log("Server function called with data: ", data);
+    }
 
     return (
         <section ref={containerRef} id="waitlist" className="flex flex-col py-20">
@@ -27,18 +51,30 @@ export default function Waitlist() {
                     reaching your fitness goals simpler, more efficient, and more engaging.
                 </p>
                 <div className="flex justify-center">
-                    <form className="flex flex-row items-center justify-center gap-2">
+                    <form 
+                        onSubmit={handleSubmit(onSubmit)}
+                        className="flex flex-row items-center justify-center gap-2"
+                    >
                         <input
                             placeholder="Email"
                             className="transition-all mt-2.5 max-w-xs w-full rounded-md px-2 py-1 bg-neutral-800/50 border-stone-500/50 border-2 focus:border-stone-500 outline-0"
+                            {...register("email", {
+                                required: "Email is required",
+                                pattern: {
+                                    value: /^\S+@\S+$/i,
+                                    message: "Enter a valid email",
+                                },
+                            })}
                         />
                         <button
-                            className="flex items-center justify-center px-4 py-1 mt-2 font-semibold text-white transition-all border-2 rounded-md bg-stone-700 border-stone-500/50 hover:bg-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-50"
+                            className={`flex items-center justify-center px-4 py-1 mt-2 font-semibold text-white transition-all border-2 rounded-md ${isValid ? "bg-stone-700" : "bg-stone-500 text-stone-600"} border-stone-500/50 ${isValid && "hover:bg-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-50"}`}
+                            disabled={!isValid}
                         >
                             Join
                         </button>
                     </form>
                 </div>
+                {emailSubmitted && <p className="py-2 text-center">{emailSubmitted} has been added to the waitlist</p>}
             </motion.div>
         </section>
     );
