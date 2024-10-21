@@ -18,7 +18,7 @@ export default function Waitlist() {
         register, 
         reset,
         handleSubmit, 
-        formState: { errors, isValid } 
+        formState: { isValid } 
     } = useForm<WaitlistForm>({
         mode: "onChange"
     })
